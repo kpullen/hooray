@@ -1,51 +1,25 @@
 <?php
 
-class hooray {
+class Hooray {
+  function __construct($data) {
+    $this->data = $data;
+  }
 
-	public $args;
+  function __call($name, $args) {
+    array_unshift(
+      $args,
+      $this->data);
+    return Chain::run(
+      $name,
+      $args);
+  }
 
-	public function __construct() {
-		$this->args = func_get_args();
+  function realize() {
+    return $this->data;
+  }
+}
 
-		// init with empty array if none given
-		if ( empty( $this->args ) )
-			$this->args = array( array() );
-
-		foreach( $this->args as $i => $array ) {
-			$this->__set( "arg_{$i}", $array );
-		}
-	}
-
-	public function __set( $name, $value ) {
-		$this->$name = $value;
-	}
-
-	public function __get( $name ) {
-		return $this->$name;
-	}
-
-	public function get( $arg = 0 ) {
-		return $this->__get( "arg_{$arg}" );
-	}
-
-	public function __call( $name, $args ) {
-
-		$func = "array_{$name}";
-
-		// array_ prefix
-		switch( $name ) {
-			// no array param
-			case 'fill':
-			case 'fill_keys':
-			case 'range':
-			case 'compact':
-				$this->__set('arg_0', call_user_func_array($func, $args));
-				break;
-
-			// single param
-			case 'count_values':
-			case 'pop':
-			case 'sum':
+/*
 			case 'flip':
 			case 'shift':
 			case 'values':
@@ -158,3 +132,4 @@ class hooray {
 	}
 
 }
+ */
