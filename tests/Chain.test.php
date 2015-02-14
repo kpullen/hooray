@@ -6,7 +6,7 @@ class ChainTest extends PHPUnit_Framework_TestCase {
       'test1',
       function($arg) { return $arg + 1; });
     $this->assertEquals(
-      2,
+      [2],
       Chain::run('test1', [1])->realize());
   }
 
@@ -15,7 +15,7 @@ class ChainTest extends PHPUnit_Framework_TestCase {
       'test1',
       function() { return 1; });
     $this->assertEquals(
-      1,
+      [1],
       Chain::run('test1')->realize());
   }
 
@@ -24,7 +24,7 @@ class ChainTest extends PHPUnit_Framework_TestCase {
       'test1',
       function($arg) { return $arg + 1; });
     $this->assertEquals(
-      2,
+      [2],
       Chain::run('test1', [5, 1])->realize());
   }
 }

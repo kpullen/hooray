@@ -20,17 +20,8 @@ class Hooray {
 }
 
 /*
-			case 'flip':
-			case 'shift':
-			case 'values':
-			case 'product':
-				$this->__set('arg_0', call_user_func($func, $this->__get('arg_0')));
-				break;
-
+ * TODO Rename diff to distinct
 			// multiple params
-			case 'change_key_case':
-			case 'chunk':
-			case 'column':
 			case 'pad':
 			case 'keys':
 			case 'push':
