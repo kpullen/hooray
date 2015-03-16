@@ -15,6 +15,7 @@ require_once 'hooray/links/higherOrder/reduce.php';
 require_once 'hooray/links/modifiers/chunk.php';
 require_once 'hooray/links/modifiers/column.php';
 require_once 'hooray/links/modifiers/countValues.php';
+require_once 'hooray/links/modifiers/drop.php';
 require_once 'hooray/links/modifiers/flip.php';
 require_once 'hooray/links/modifiers/growKeys.php';
 require_once 'hooray/links/modifiers/keys.php';
@@ -22,6 +23,7 @@ require_once 'hooray/links/modifiers/pad.php';
 require_once 'hooray/links/modifiers/push.php';
 require_once 'hooray/links/modifiers/shrinkKeys.php';
 require_once 'hooray/links/modifiers/splice.php';
+require_once 'hooray/links/modifiers/take.php';
 require_once 'hooray/links/modifiers/values.php';
 
 function hooray() {
