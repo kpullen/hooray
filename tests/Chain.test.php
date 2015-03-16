@@ -18,13 +18,4 @@ class ChainTest extends PHPUnit_Framework_TestCase {
       [1],
       Chain::run('test1')->realize());
   }
-
-  function testAddWithoutContextRemovesFirstArg() {
-    Chain::addWithoutContext(
-      'test1',
-      function($arg) { return $arg + 1; });
-    $this->assertEquals(
-      [2],
-      Chain::run('test1', [5, 1])->realize());
-  }
 }

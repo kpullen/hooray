@@ -14,19 +14,6 @@ class Chain {
       };
   }
 
-  static function addWithoutContext($name, $method) {
-    Chain::add(
-      $name,
-      function() use ($method) {
-        $args = func_get_args();
-        array_shift($args);
-        return
-          call_user_func_array(
-            $method,
-            $args);
-      });
-  }
-
   static function addTerminal($name, $method) {
     Chain::$links[$name] =
       function() use ($method) {
