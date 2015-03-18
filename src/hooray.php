@@ -3,6 +3,8 @@
 require_once 'hooray/Chain.php';
 require_once 'hooray/Hooray.php';
 
+require_once 'hooray/links/breakTheChain/asEnglish.php';
+require_once 'hooray/links/breakTheChain/join.php';
 require_once 'hooray/links/breakTheChain/pop.php';
 require_once 'hooray/links/breakTheChain/product.php';
 require_once 'hooray/links/breakTheChain/shift.php';
@@ -27,11 +29,7 @@ require_once 'hooray/links/modifiers/take.php';
 require_once 'hooray/links/modifiers/values.php';
 
 function hooray() {
-  $args = func_get_args();
   return
     new Hooray(
-      count($args) == 1 &&
-      is_array($args[0]) ?
-        $args[0] :
-        $args);
+      Hooray::unwrap(func_get_args()));
 }
