@@ -20,6 +20,7 @@ require_once 'hooray/links/modifiers/countValues.php';
 require_once 'hooray/links/modifiers/drop.php';
 require_once 'hooray/links/modifiers/flip.php';
 require_once 'hooray/links/modifiers/growKeys.php';
+require_once 'hooray/links/modifiers/intersect.php';
 require_once 'hooray/links/modifiers/keys.php';
 require_once 'hooray/links/modifiers/pad.php';
 require_once 'hooray/links/modifiers/push.php';
