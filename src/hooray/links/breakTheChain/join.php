@@ -11,6 +11,8 @@ Chain::addTerminal(
         return $ifEmpty;
       case 1:
         return $data[0];
+      case 2:
+        return join($terminalJoiner, $data);
       default:
         $last = array_pop($data);
         return join($terminalJoiner, [join($joiner, $data), $last]);

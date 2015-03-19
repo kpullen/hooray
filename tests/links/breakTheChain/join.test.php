@@ -13,6 +13,18 @@ class JoinTest extends PHPUnit_Framework_TestCase {
       hooray(1)->join());
   }
 
+  function testJoinWithTwoItems() {
+    $this->assertEquals(
+      '12',
+      hooray(1, 2)->join());
+  }
+
+  function testUsesTerminalJoinerWhenGivenTwoItems() {
+    $this->assertEquals(
+      '1-2',
+      hooray(1, 2)->join('|', '-'));
+  }
+
   function testDefaultJoinBehavior() {
     $this->assertEquals(
       '123',
