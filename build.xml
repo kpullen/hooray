@@ -13,7 +13,7 @@
         <exclude name='stub.php' />
       </fileset>
       <metadata>
-        <element name="version" value="0.0.1" />
+        <element name="version" value="0.85.0" />
         <element name="authors">
           <element name="Robert O'Rourke">
             <element name="email" value="robert@o-rourke.org" />

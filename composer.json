@@ -1,0 +1,21 @@
+{
+  "name": "wemash/hooray",
+  "description": "Fall in love with arrays all over again",
+  "version": "0.85.0",
+  "keywords": [
+    "arrays",
+    "utilities"
+  ],
+  "homepage": "https://hooray.github.io",
+  "license": "GPL-2.0",
+  "support": {
+    "email": "wtf@mash.is",
+    "web": "https://github.com/wemash/hooray/issues"
+  },
+  "autoload": {
+    "files": ["src/hooray.php"]
+  },
+  "require": {
+    "php": ">=5.4.0"
+  }
+}

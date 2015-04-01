@@ -1,72 +1,53 @@
-hooray
-======
+# hooray!
 
-PHP array helper for reducing nestiness
+In the long, long ago there were just arrays, and functions to handle them. That was cool, but the functions were scattered all over the floor and their argument orders weren't all that orderly. Then [@sancho](https://github.com/sanchothefat) had a great idea! Take the functions, order their arguments a little better, and make them chainable.
 
-This is a first pass and probably horrible for some reason I haven't thought of. Anyhoo...
+## Wrap, transform, realize
 
-You may or not have done something like this horrendously contrived example when
-working with arrays in PHP:
+Hooray is all about giving you the tools you need to work on arrays, in the form of transformations. The transformations are hung off a Hooray object, which you wrap around your array. When you are all done, just get your new array out the other end. Here is an example:
 
-```php
-<?php
+    $> hooray([1, 2, 3])
+       ->map(function(thing) { return thing + 1; })
+       ->realize();
+    $> [2, 3 4]
 
-$a = array( 0, 1, 2, 3, 3, 4, 4, 6, 5 );
+Hooray accepts arrays, or just a list of arguments if that's all you've got, so put those brackets away:
 
-array_map( function( $val ) {
-    return $val * 10;
-}, array_unique( array_filter( $a ) ) );
+    $> hooray(1, 2, 3)
+       ->realize();
+    $> [1, 2, 3]
 
-print_r( $a );
+Hooray also accepts other hooray objects, so don't worry about double wrapping:
+ 
+    $> hooray(hooray(1, 2, 3))
+       ->realize();
+    $> [1, 2, 3]
 
-?>
-```
+## Adding links to the chain
 
-What I'm aiming to do with Hooray is make all the normal array functions chainable so
-it's easier to separate them, and also to avoid repeating yourself to some extent.
+So, let's say you've been working with hooray, and so far it has solved all your problems. Now you come across a problem that would totally be solved if you could _Just. Invoke. A. Transform!_ Well, sure, you can do that:
 
-Here's the equivalent to the above example using Hooray:
+    $> Chain::add(
+         "reticulateTheSplines",
+         function($data, $arg1, $arg2) {
+            // Reticulate some splines right here...
+            return ["RE", "TIC", "ULATED"];
+         });
+    $> hooray(1, 2, 3)
+       ->reticulateTheSplines($arg1, $arg2)
+       ->realize();
+    $> ["RE", "TIC", "ULATED"]
 
-```php
-<?php
+As you can see, a call to `Chain::add` created a new link that can immediately be invoked from any instance of hooray. What's more, that link can accept arguments, and the actual array hooray is wrapping gets prepended to the argument list before invocation. The link is then free to return whatevs. It's expected that transformations added through `Chain::add` return an array though. If you want to return something other than an array, use `Chain::addTerminal`.
 
-// constructor takes the array you want to work on
-// if empty you can use push(), fill() etc.. methods
-$a = new hooray( array( 0, 1, 2, 3, 3, 4, 4, 6, 5 ) );
+## Using the library
 
-$a
-	->filter()
-	->unique()
-	->map( function( $val ) {
-		return $val * 10;
-	} );
+1. `git clone https://github.com/wemash/hooray`
+2. `phing package`
+3. `cp hooray.phar /var/www/wherever/you/want`
 
-// use the get() method to return the modified array
-print_r( $a->get() );
+or.....
 
-?>
-```
-
-Methods that normally return something other than an array will continue to do so eg:
-
-```php
-<?php
-
-$a = new hooray( array( 0, 1, 2, 3, 3, 4, 4, 6, 5 ) );
-
-$a->count(); // 9
-
-?>
-```
-
-You can continue to use the Hooray object after that if you need to do more with the array.
-
-## Other potential goals
-
-* maybe normalise argument order for similar methods - sort of done as you don't have to pass in the array more than once
-* work out if the `__call()` + massive switch statement is really worth it as there's no way to add PHPDoc
-* add additional nice methods like rotate, flatten, deep copy etc..
-* unit tests
-* perf tests
-
-
+1. `composer require wemash/hooray`
+2. `composer update`
+3. `composer install`
