@@ -13,7 +13,7 @@
         <exclude name='stub.php' />
       </fileset>
       <metadata>
-        <element name="version" value="0.85.0" />
+        <element name="version" value="0.85.2" />
         <element name="authors">
           <element name="Robert O'Rourke">
             <element name="email" value="robert@o-rourke.org" />
@@ -25,5 +25,16 @@
         </element>
       </metadata>
     </pharpackage>
+  </target>
+  <target name="document">
+    <mkdir dir="./doc" />
+    <phpdoc2
+      title="Hooraayyyyyy!"
+      destdir="./doc"
+      template="responsive-twig">
+      <fileset dir="./src">
+        <include name="**/*.php" />
+      </fileset>
+    </phpdoc2>
   </target>
 </project>
