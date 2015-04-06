@@ -12,6 +12,7 @@ require_once 'hooray/links/breakTheChain/shift.php';
 require_once 'hooray/links/breakTheChain/sum.php';
 
 require_once 'hooray/links/higherOrder/filter.php';
+require_once 'hooray/links/higherOrder/flatmap.php';
 require_once 'hooray/links/higherOrder/map.php';
 require_once 'hooray/links/higherOrder/reduce.php';
 
