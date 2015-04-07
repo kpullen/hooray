@@ -30,6 +30,7 @@ require_once 'hooray/links/modifiers/shrinkKeys.php';
 require_once 'hooray/links/modifiers/shuffle.php';
 require_once 'hooray/links/modifiers/splice.php';
 require_once 'hooray/links/modifiers/take.php';
+require_once 'hooray/links/modifiers/unique.php';
 require_once 'hooray/links/modifiers/unshift.php';
 require_once 'hooray/links/modifiers/values.php';
 
